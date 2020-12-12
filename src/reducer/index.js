@@ -3,7 +3,8 @@ import {
   UPDATE_CONTENT,
   DETAIL_CONTENT,
   UPDATE_COMMENT,
-  DETAIL_COMMENT
+  DETAIL_COMMENT,
+  EXPAND_COMMENT
 } from "../action/globalVaribl";
 
 const initialStore = {
@@ -24,6 +25,9 @@ export default function reducer(state = initialStore, action) {
   } else if (action.type === UPDATE_COMMENT) return action.payload;
   else if (action.type === DETAIL_COMMENT) {
     console.log("sas", action.payload);
+    return action.payload;
+  } else if (action.type === EXPAND_COMMENT) {
+    console.log("EXPAND_COMMENT", action.payload);
     return action.payload;
   }
   return [state];

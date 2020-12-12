@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 import DisplayComments from "./DisplayComments";
 import "./commentStyle.css";
 
-function Comments({ kids, comments }) {
-  //console.log("props", props);
-  if (!kids) return <h1>Non</h1>;
+function Comments(props) {
+  console.log("props2", props);
+  if (!props.kids) return <h1>Non</h1>;
   return (
     <>
-      <DisplayComments comments={comments} />
+      <DisplayComments comments={props.comments} />
     </>
   );
 }
 
 function ItemNews(props) {
   {
-    console.log("props", props);
+    console.log("props1", props);
   }
   if (!props.load) {
     return <h1>Load</h1>;

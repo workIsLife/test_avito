@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getComments } from "../../action/getComments";
-
-function DisplayComments({ comments, expandComment, oldState }) {
+import { EXPAND_COMMENT } from "../../action/globalVaribl";
+function DisplayComments({ comments, expandComment, oldState, updateLoader }) {
   //console.log("display", props.comments);
   //const tag = document.createElement("li");
   const commentsHTML = [];
@@ -20,7 +20,8 @@ function DisplayComments({ comments, expandComment, oldState }) {
             </div>
             <div
               onClick={() => {
-                console.log(item);
+                console.log("display comm", oldState);
+                updateLoader(oldState[0]);
                 expandComment(item.kids, oldState);
               }}
               class="comment-box"
@@ -52,6 +53,10 @@ export default connect(
   (dispatch) => ({
     expandComment: (mapUrl, oldState) => {
       dispatch(getComments(mapUrl, oldState));
+    },
+    updateLoader: (lastState) => {
+      const isLoad = false;
+      dispatch({ type: EXPAND_COMMENT, payload: [lastState, isLoad] });
     }
   })
 )(DisplayComments);

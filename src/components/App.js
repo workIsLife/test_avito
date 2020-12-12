@@ -19,7 +19,7 @@ function App(props) {
       <Header>
         <h1 className="logo">Top100News</h1>
         <button onClick={() => props.toUpdate()}>click</button>
-        <button onClick={props.saveId}>Click2 </button>
+        <button onClick={() => props.saveId}>Click2 </button>
       </Header>
       <Content className="Content">
         <Switch>

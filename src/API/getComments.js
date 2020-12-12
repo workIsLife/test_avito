@@ -7,4 +7,5 @@ export default async function getComments(mapUrl) {
     const data = await getData(mapUrl[i]);
     childComments.push(data);
   }
+  return childComments;
 }
